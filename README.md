@@ -1,44 +1,40 @@
-# GuiLite - made by 6000 lines code
-[中文](README-cn.md)
+# GuiLite - Lighter & freer
+Ran on macOS & iOS:
 
-GuiLite is written by 6000 lines C/C++ code, just like MFC/QT, it provide UI framework for developer.
+![macOS](doc/Mac.gif) ![iOS](doc/Ios.landscape.gif)
 
-GuiLite is a embeded UI framework, it can work with QT/MFC/UWP APP, this mean you can not only develop your UI with Guilite, and also get QT/MFC/UWP/Android UI feature as well.
+Ran on Android & GNU/Linux embedded (ARM):
 
-We hope you can develop some stable feature with GuiLite, then you can run your APP on Linux/Android/Windows/VR/MR at same time.
+![Android](doc/Android.gif) ![GNU/Linux embedded (ARM)](doc/Linux.gif)
 
-Get some examples, you can visit:
+Ran on Windows Mixed Reality & QQ developers' group:
 
-[GuiLiteSamples repository](https://github.com/idea4good/GuiLiteSamples)
+![Win MR](doc/WinMR.gif) ![QQ group: 527251257](doc/qq.group.jpg)
 
-[GuiLiteSamples video](https://www.youtube.com/watch?v=grqXEz3bdC0)
+[中文](doc/README-cn.md)
 
-## Code intro
-gui folder:
-1. Here are code for controllers(eg. button, lable, keyboard) and containers(eg. view, dialog, flip pages); You can redraw your own widget by modify this code.
-2. Here are code for message transition(eg. finger press/release), it will pass finger press/release message to widget which been touched, and call callback function if defined.
+- GuiLite has 6000 lines of C++ code, providing **UI framework for all platforms** for developers. Just like the pictures above, GuiLite can run on iOS, Android, GNU/Linux, Windows and macOS platforms.
+- GuiLite is a embedded UI framework. It can work with Qt/MFC/UWP/XCode, which means you can get not only GuiLite features but also iOS/Android/macOS/Qt/MFC/UWP features.
+- GuiLite can work with other languages(e.g. Swift, Java, C#).
 
-core folder:
-1. Here are code for render: surface.cpp, bitmap.cpp, word.cpp
-2. Here are code for OS encapsulation: api_linux.cpp api_win.cpp
+## Quick Start
+- Download GuiLite samples: `git clone https://github.com/idea4good/GuiLiteSamples.git`
+- `cd GuiLiteSamples\HostMonitor`
+- [Build and run on any platforms you like](https://github.com/idea4good/GuiLiteSamples/blob/master/HostMonitor/README.md)
 
-## How GuiLite work?
-GuiLite do 2 things: one is widgets management, the other is render.
+## Documents
+[Code walkthrough](doc/CodeWalkthough.md)
 
-### How to manage widgets?
-All widgets derived from class c_wnd. The widget will be created when the class has been instanced, at this time, the widget still alone, has nothing to do with UI system, could not response any user operation. We need use "connect()" function to link this widget into UI system. use "disconnect()" function to unlink this widget from UI system.
+[How to build?](doc/HowToBuild.md)
 
-### How to render?
-See function draw_xxx() in surface.cpp word.cpp bitmap.cpp.
+[How to layout widgets?](doc/HowLayoutWork.md)
 
-### Graphic layer
-![Graphic layer](GraphicLayer.png)
+[How to dispatch messages?](doc/HowMessageWork.md)
 
-display layer：
-This layer for physical display device, one UI has only one display layer.
+## Examples with Videos
+[GuiLite Samples' repository](https://github.com/idea4good/GuiLiteSamples)
 
-surface layer:
-One display layer have many surface layers, one surface layer represent one flip page.
+[GuiLite Samples' video](https://www.youtube.com/watch?v=grqXEz3bdC0)
 
-frame layer:
-One surface layer has many frame layers, one frame layer represent one layer in Z direction.
+## Alternative Repository
+[Link to Gitee in China](https://gitee.com/idea4good/GuiLite)

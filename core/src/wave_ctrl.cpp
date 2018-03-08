@@ -48,7 +48,7 @@ void c_wave_ctrl::on_init_children()
 	m_wave_bottom	= rect.m_bottom - 4;
 	m_wave_cursor	= m_wave_left;
 
-	m_bg_fb = calloc(rect.Width() * rect.Height() * 2, 1);
+	m_bg_fb = calloc(rect.Width() * rect.Height(), 2);
 }
 
 void c_wave_ctrl::set_max_min_base(short max_data, short min_data, short data_base)
@@ -134,7 +134,7 @@ void c_wave_ctrl::refresh_wave(unsigned char frame)
 		//get wave value
 		mid = m_wave->read_wave_data_by_frame(max, min,
 							m_frame_len_map[m_frame_len_map_index++],
-							(frame | (speed << 8) | (((unsigned int)this & 0xffff) << 16)));
+							(frame | (speed << 8) | (((unsigned long)this & 0xffff) << 16)));
 		m_frame_len_map_index %= sizeof(m_frame_len_map);
 		//gain
 		switch(m_gain)
